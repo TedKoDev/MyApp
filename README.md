@@ -109,8 +109,6 @@ module.exports = {
 먼저 새 지점으로 전환합니다(선택 사항이지만 권장됨).
 $ git checkout -b rename-app
 그런 다음 앱 이름을 바꾸세요.
-$ npx react-native-rename "Travel App"
-사용자 정의 번들 식별자 사용
 
 $ npx react-native-rename "Travel App" -b "com.junedomingo.travelapp"
 ```
@@ -210,4 +208,47 @@ const MyIcon = <Icon name="rocket" size={30} color="#900" />;
 
 
 
-### 
+### firbase Auth 사용하기 
+```
+Firebase SDK를 리액트 네이티브 프로젝트의 iOS와 Android 앱에 각각 설정하는 과정은 몇 가지 단계를 포함합니다. 아래는 Firebase SDK를 설정하는 기본적인 단계입니다. 이 과정은 `@react-native-firebase/app` 모듈을 기반으로 하며, 추가적인 Firebase 기능(예: 인증, 데이터베이스, 분석 등)을 사용하려면 해당 기능에 맞는 추가 모듈을 설치하고 설정해야 합니다.
+
+### 공통 단계:
+
+1. [Firebase 콘솔](https://console.firebase.google.com/)에서 프로젝트를 생성합니다.
+2. 생성한 프로젝트에 iOS 앱과 Android 앱을 각각 추가합니다. 이 과정에서 Firebase 콘솔은 iOS 앱의 `GoogleService-Info.plist` 파일과 Android 앱의 `google-services.json` 파일을 제공합니다. 이 파일들은 각 플랫폼의 프로젝트에 추가해야 합니다.
+
+### iOS 설정:
+
+1. `GoogleService-Info.plist` 파일을 다운로드 받습니다.
+2. Xcode를 열고, 다운로드 받은 `GoogleService-Info.plist` 파일을 프로젝트의 `ios/[YOUR_PROJECT_NAME]` 폴더 안에 드래그 앤 드롭으로 추가합니다. 파일을 추가할 때 "Copy items if needed" 옵션을 선택하는 것을 확인하세요.
+3. `ios/Podfile` 파일에 Firebase SDK 종속성을 추가합니다. 대부분의 경우 `@react-native-firebase/app` 모듈 설치 시 자동으로 추가됩니다. 필요한 경우 `pod install`을 실행하여 CocoaPods 종속성을 설치합니다.
+
+   ```bash
+   cd ios/
+   pod install
+   cd ..
+   ```
+
+### Android 설정:
+
+1. `google-services.json` 파일을 다운로드 받습니다.
+2. 다운로드 받은 `google-services.json` 파일을 프로젝트의 `android/app` 폴더 안에 복사합니다.
+3. `android/build.gradle` 파일에 Google 서비스 플러그인을 추가합니다.
+
+   ```gradle
+   buildscript {
+     dependencies {
+       // 기존 종속성 아래에 추가
+       classpath 'com.google.gms:google-services:4.3.3' // Google 서비스 플러그인 버전은 변경될 수 있습니다.
+     }
+   }
+   ```
+
+4. `android/app/build.gradle` 파일의 맨 아래에 다음 코드를 추가하여 Firebase 플러그인을 적용합니다.
+
+   ```gradle
+   apply plugin: 'com.google.gms.google-services'
+   ```
+
+이제 Firebase SDK가 iOS와 Android 프로젝트에 설정되었습니다. 앱을 빌드하고 실행하여 Firebase와의 연동이 정상적으로 작동하는지 확인하세요. 추가적인 Firebase 기능을 사용하려면, 필요한 `@react-native-firebase/[FEATURE]` 모듈을 설치하고 각 기능에 맞게 설정을 추가해야 할 수도 있습니다.
+```

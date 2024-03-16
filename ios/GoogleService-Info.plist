@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB21iXEFQIpRoXkMhPkRVxv7R0shIOXykc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>662143815839</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bestpractice.hongjak</string>
+	<key>PROJECT_ID</key>
+	<string>myapp-c54bb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>myapp-c54bb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:662143815839:ios:32bffdc1bef7c1523d12aa</string>
+</dict>
+</plist>
